@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
-.main-section form {
+.step-2 .container-2, .step-1 form {
   background: hsl(0, 0%, 100%);
   border-radius: 10px;
   padding: 30px 20px;
@@ -10,18 +10,18 @@
   transform: translateX(-50%);
   width: 90%;
 }
-.main-section form header h1 {
+.step-2 .container-2 header h1, .step-1 form header h1 {
   color: hsl(213, 96%, 18%);
   font-size: 30px;
 }
-.main-section form header p {
+.step-2 .container-2 header p, .step-1 form header p {
   color: hsl(231, 11%, 63%);
   font-size: 15px;
   margin: 15px 0 20px;
   line-height: 1.4rem;
 }
 
-.main-section .nav {
+.step-2 .nav, .step-1 .nav {
   background-color: hsl(231, 100%, 99%);
   display: flex;
   justify-content: space-between;
@@ -30,13 +30,25 @@
   padding: 15px;
   width: 100%;
 }
-.main-section .nav button {
+.step-2 .nav button, .step-1 .nav button {
   background-color: hsl(213, 96%, 18%);
   color: hsl(0, 0%, 100%);
   font-family: "Ubuntu", sans-serif;
   border: none;
   border-radius: 5px;
   padding: 8px 10px;
+  cursor: pointer;
+}
+.step-2 .nav button:hover, .step-1 .nav button:hover {
+  background-color: #03418c;
+}
+.step-2 .nav .back, .step-1 .nav .back {
+  background: transparent;
+  color: hsl(231, 11%, 63%);
+}
+.step-2 .nav .back:hover, .step-1 .nav .back:hover {
+  background: transparent;
+  color: hsl(213, 96%, 18%);
 }
 
 * {
@@ -79,25 +91,25 @@ body {
   display: none;
 }
 
-.main-section.hidden {
+.step-1.hidden {
   display: none;
 }
-.main-section form .title-error {
+.step-1 form .title-error {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
 }
-.main-section form .title-error small {
+.step-1 form .title-error small {
   color: hsl(354, 84%, 57%);
 }
-.main-section form .title-error small.hidden {
+.step-1 form .title-error small.hidden {
   visibility: hidden;
 }
-.main-section form label {
+.step-1 form label {
   display: block;
   color: hsl(213, 96%, 18%);
 }
-.main-section form input {
+.step-1 form input {
   font-family: "Ubuntu", sans-serif;
   width: 100%;
   padding: 12px;
@@ -105,16 +117,91 @@ body {
   border: 1.2px solid hsl(229, 24%, 87%);
   margin-bottom: 20px;
 }
-.main-section form input::-moz-placeholder {
+.step-1 form input::-moz-placeholder {
   color: hsl(213, 96%, 18%);
 }
-.main-section form input::placeholder {
+.step-1 form input::placeholder {
   color: hsl(213, 96%, 18%);
 }
-.main-section .nav button:nth-of-type(1) {
+.step-1 .nav button:nth-of-type(1) {
   visibility: hidden;
 }
 
+.step-2 .container-2 .plans.monthly .year {
+  display: none;
+}
+.step-2 .container-2 .plans.monthly small {
+  display: none;
+}
+.step-2 .container-2 .plans.yearly .month {
+  display: none;
+}
+.step-2 .container-2 .plans.yearly .year {
+  display: block;
+}
+.step-2 .container-2 .plans.yearly small {
+  display: block;
+}
+.step-2 .container-2 .plans .plan {
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  border: 1.5px solid hsl(229, 24%, 87%);
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+.step-2 .container-2 .plans .plan:focus {
+  background-color: hsl(217, 100%, 97%);
+  border: 1.5px solid hsl(213, 96%, 18%);
+}
+.step-2 .container-2 .plans .plan img {
+  margin-bottom: auto;
+  margin-right: 15px;
+}
+.step-2 .container-2 .plans .plan .plan-cal {
+  display: flex;
+  flex-direction: column;
+}
+.step-2 .container-2 .plans .plan .plan-cal span {
+  color: hsl(231, 11%, 63%);
+}
+.step-2 .container-2 .switcher {
+  display: flex;
+  justify-content: space-between;
+  background-color: hsl(217, 100%, 97%);
+  padding: 20px 35px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+.step-2 .container-2 .switcher.month .yr {
+  color: hsl(231, 11%, 63%);
+}
+.step-2 .container-2 .switcher.year .mn {
+  color: hsl(231, 11%, 63%);
+}
+.step-2 .container-2 .switcher.year .toggle .indicator {
+  left: 29px;
+}
+.step-2 .container-2 .switcher .toggle {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 21px;
+  border-radius: 160px;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.step-2 .container-2 .switcher .toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  transform: scale(0.7);
+}
 .attribution {
   font-size: 11px;
   text-align: center;
