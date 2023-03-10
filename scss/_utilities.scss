@@ -1,0 +1,43 @@
+%main {
+  background: $White;
+  border-radius: 10px;
+  padding: 30px 20px;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  width: 90%;
+
+  header {
+    h1 {
+      color: $Marine-blue;
+      font-size: 30px;
+    }
+    p {
+      color: $Cool-gray;
+      font-size: 15px;
+      margin: 15px 0 20px;
+      line-height: 1.4rem;
+    }
+  }
+}
+
+%nav {
+  background-color: $Alabaster;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0px;
+  padding: 15px;
+  width: 100%;
+
+  button {
+    background-color: $Marine-blue;
+    color: $White;
+    font-family: $fonty;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+  }
+}

@@ -17,7 +17,7 @@
     <aside>
       <div class="sidebar">
         <div class="step">
-          <button>1</button>
+          <a href="#step-1"><button>1</button></a>
           <div class="about">
             <span>STEP 1</span>
             <p>YOUR INFO</p>
@@ -50,30 +50,50 @@
     <!-- Sidebar end -->
 
     <!-- Step 1 start -->
-    <!-- <section id="step-1">
-  <form>
-    <header>
-      <h1>Personal info</h1>
-      <p> Please provide your name, email address, and phone number.</p>
-    </header>
-    <div class="form-control">
-      <label for="name">Name</label>
-      <input id="name" type="text" placeholder="e.g. Stephen King">
-      <small>Error message</small>
-    </div>
-    <div class="form-control">
-      <label for="email">Email Address</label>
-      <input id="email" type="text" placeholder="e.g. stephenking@lorem.com">
-      <small>Error message</small>
-    </div>
-    <div class="form-control">
-      <label for="phone-number">Phone Number</label>
-      <input id="phone-number" type="text" placeholder="e.g. +1 234 567 890">
-      <small>Error message</small>
-    </div>
-    <button>Next Step</button>
-  </form>
-</section> -->
+    <section id="step-1" class="main-section">
+      <form>
+        <header>
+          <h1>Personal info</h1>
+          <p>
+            Please provide your name, email<br />
+            address, and phone number.
+          </p>
+        </header>
+        <div class="form-control">
+          <div class="title-error">
+            <label for="name">Name</label>
+            <small class="hidden">Error message</small>
+          </div>
+          <input id="name" type="text" placeholder="e.g. Stephen King" />
+        </div>
+        <div class="form-control">
+          <div class="title-error">
+            <label for="email">Email Address</label>
+            <small class="hidden">Error message</small>
+          </div>
+          <input
+            id="email"
+            type="text"
+            placeholder="e.g. stephenking@lorem.com"
+          />
+        </div>
+        <div class="form-control">
+          <div class="title-error">
+            <label for="phone-number">Phone Number</label>
+            <small class="hidden">Error message</small>
+          </div>
+          <input
+            id="phone-number"
+            type="text"
+            placeholder="e.g. +1 234 567 890"
+          />
+        </div>
+      </form>
+      <div class="nav">
+        <button>Go Back</button>
+        <button>Next Step</button>
+      </div>
+    </section>
 
     <!-- Step 1 end -->
 
@@ -158,7 +178,7 @@
     <!-- Step 3 end -->
 
     <!-- Step 4 start -->
-    <section id="step-4">
+    <!-- <section id="step-4">
       <header>
         <h1>Finishing up</h1>
         <p>Double-check everything looks OK before confirming.</p>
@@ -172,15 +192,20 @@
         <button>Go Back</button>
         <button>Confirm</button>
       </div>
-    </section>
+    </section> -->
 
     <!-- Step 4 end -->
 
     <!-- Step 5 start -->
-
-    <!-- Thank you! Thanks for confirming your subscription! We hope you have fun
-    using our platform. If you ever need support, please feel free to email us
-    at support@loremgaming.com. -->
+    <!-- <section class="thank-you">
+      <img src="/assets/images/icon-thank-you.svg" alt="" />
+      <h1>Thank you!</h1>
+      <p>
+        Thanks for confirming your subscription! We hope you have fun using our
+        platform. If you ever need support, please feel free to email us at
+        support@loremgaming.com.
+      </p>
+    </section> -->
 
     <!-- Step 5 end -->
 

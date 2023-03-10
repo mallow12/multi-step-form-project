@@ -1,13 +1,96 @@
+@import 'config';
+@import 'utilities';
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  background-color: $Light-gray;
+  font-family: $fonty;
+}
+
+.sidebar {
+  background: $bg-mobile no-repeat center center/ cover;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 12rem;
+
+  .step {
+    margin: 2.3rem 1rem 0 0;
+
+    button {
+      background: transparent;
+      color: $Alabaster;
+      font-family: $fonty;
+      font-weight: 700;
+      border: 1.5px solid $Light-gray;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      &:focus {
+        background-color: $Light-gray;
+        color: $Marine-blue;
+      }
+    }
+
+    .about {
+      display: none;
+    }
+  }
+}
+
+.main-section {
+&.hidden{
+  display: none;
+}
+
+  form {
+    @extend %main;
+
+    .title-error {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      small {
+        color: $Strawberry-red;
+        &.hidden {
+          visibility: hidden;
+        }
+      }
+    }
+    label {
+      display: block;
+      color: $Marine-blue;
+    }
+    input {
+      font-family: $fonty;
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1.2px solid $Light-gray;
+      margin-bottom: 20px;
+
+      &::placeholder {
+        color: $Marine-blue;
+      }
+    }
+  }
+  .nav {
+    @extend %nav;
+    button:nth-of-type(1) {
+      visibility: hidden;
+    }
+  }
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
-
   a {
     color: hsl(228, 45%, 44%);
   }

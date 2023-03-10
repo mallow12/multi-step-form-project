@@ -1,7 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+.main-section form {
+  background: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  padding: 30px 20px;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  width: 90%;
+}
+.main-section form header h1 {
+  color: hsl(213, 96%, 18%);
+  font-size: 30px;
+}
+.main-section form header p {
+  color: hsl(231, 11%, 63%);
+  font-size: 15px;
+  margin: 15px 0 20px;
+  line-height: 1.4rem;
+}
+
+.main-section .nav {
+  background-color: hsl(231, 100%, 99%);
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0px;
+  padding: 15px;
+  width: 100%;
+}
+.main-section .nav button {
+  background-color: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(229, 24%, 87%);
+  font-family: "Ubuntu", sans-serif;
+}
+
+.sidebar {
+  background: url(/assets/images/bg-sidebar-mobile.svg) no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 12rem;
+}
+.sidebar .step {
+  margin: 2.3rem 1rem 0 0;
+}
+.sidebar .step button {
+  background: transparent;
+  color: hsl(231, 100%, 99%);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  border: 1.5px solid hsl(229, 24%, 87%);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.sidebar .step button:focus {
+  background-color: hsl(229, 24%, 87%);
+  color: hsl(213, 96%, 18%);
+}
+.sidebar .step .about {
+  display: none;
+}
+
+.main-section.hidden {
+  display: none;
+}
+.main-section form .title-error {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.main-section form .title-error small {
+  color: hsl(354, 84%, 57%);
+}
+.main-section form .title-error small.hidden {
+  visibility: hidden;
+}
+.main-section form label {
+  display: block;
+  color: hsl(213, 96%, 18%);
+}
+.main-section form input {
+  font-family: "Ubuntu", sans-serif;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1.2px solid hsl(229, 24%, 87%);
+  margin-bottom: 20px;
+}
+.main-section form input::-moz-placeholder {
+  color: hsl(213, 96%, 18%);
+}
+.main-section form input::placeholder {
+  color: hsl(213, 96%, 18%);
+}
+.main-section .nav button:nth-of-type(1) {
+  visibility: hidden;
 }
 
 .attribution {
@@ -9,5 +120,5 @@
   text-align: center;
 }
 .attribution a {
-  color: hsl(228deg, 45%, 44%);
+  color: hsl(228, 45%, 44%);
 }
