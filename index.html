@@ -14,213 +14,230 @@
   </head>
   <body>
     <!-- Sidebar start -->
-    <aside>
-      <div class="sidebar">
-        <div class="step">
-          <a href="#step-1"><button>1</button></a>
-          <div class="about">
-            <span>STEP 1</span>
-            <p>YOUR INFO</p>
+    <main>
+      <aside>
+        <div class="sidebar">
+          <div class="step">
+            <button>1</button>
+            <div class="about">
+              <span>STEP 1</span>
+              <p>YOUR INFO</p>
+            </div>
+          </div>
+          <div class="step">
+            <button>2</button>
+            <div class="about">
+              <span>STEP 2</span>
+              <p>SELECT PLAN</p>
+            </div>
+          </div>
+          <div class="step">
+            <button>3</button>
+            <div class="about">
+              <span>STEP 3</span>
+              <p>ADD-ONS</p>
+            </div>
+          </div>
+          <div class="step">
+            <button>4</button>
+            <div class="about">
+              <span>STEP 4</span>
+              <p>SUMMARY</p>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <button>2</button>
-          <div class="about">
-            <span>STEP 2</span>
-            <p>SELECT PLAN</p>
+      </aside>
+      <!-- Sidebar end -->
+      <!-- Step 1 start -->
+      <section id="step-1" class="step-1">
+        <form>
+          <header>
+            <h1>Personal info</h1>
+            <p>
+              Please provide your name, email<br />
+              address, and phone number.
+            </p>
+          </header>
+          <div class="form-control">
+            <div class="title-error">
+              <label for="name">Name</label>
+              <small class="hidden">Error message</small>
+            </div>
+            <input id="name" type="text" placeholder="e.g. Stephen King" />
+          </div>
+          <div class="form-control">
+            <div class="title-error">
+              <label for="email">Email Address</label>
+              <small class="hidden">Error message</small>
+            </div>
+            <input
+              id="email"
+              type="text"
+              placeholder="e.g. stephenking@lorem.com"
+            />
+          </div>
+          <div class="form-control">
+            <div class="title-error">
+              <label for="phone-number">Phone Number</label>
+              <small class="hidden">Error message</small>
+            </div>
+            <input
+              id="phone-number"
+              type="text"
+              placeholder="e.g. +1 234 567 890"
+            />
+          </div>
+        </form>
+        <div class="nav">
+          <button class="back">Go Back</button>
+          <button>Next Step</button>
+        </div>
+      </section>
+      <!-- Step 1 end -->
+      <!-- Step 2 start -->
+      <section id="step-2" class="step-2 hidden">
+        <div class="container-2">
+          <header>
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
+          </header>
+          <div class="plans monthly">
+            <div class="plan" tabindex="0">
+              <img src="/assets/images/icon-arcade.svg" alt="arcade-logo" />
+              <div class="plan-cal">
+                <h2>Arcade</h2>
+                <span class="month">$9/mo</span>
+                <span class="year">$90/yr</span>
+                <small>2 months free</small>
+              </div>
+            </div>
+            <div class="plan" tabindex="0">
+              <img src="/assets/images/icon-advanced.svg" alt="advanced-logo" />
+              <div class="plan-cal">
+                <h2>Advanced</h2>
+                <span class="month">$12/mo</span>
+                <span class="year">$120/yr</span>
+                <small>2 months free</small>
+              </div>
+            </div>
+            <div class="plan" tabindex="0">
+              <img src="/assets/images/icon-pro.svg" alt="pro-logo" />
+              <div class="plan-cal">
+                <h2>Pro</h2>
+                <span class="month">$15/mo</span>
+                <span class="year">$150/yr</span>
+                <small>2 months free</small>
+              </div>
+            </div>
+          </div>
+          <div class="switcher month">
+            <span class="mn">Monthly</span>
+            <div class="toggle">
+              <i class="indicator"></i>
+            </div>
+            <span class="yr">Yearly</span>
           </div>
         </div>
-        <div class="step">
-          <button>3</button>
-          <div class="about">
-            <span>STEP 3</span>
-            <p>ADD-ONS</p>
+        <div class="nav">
+          <button class="back">Go Back</button>
+          <button>Next Step</button>
+        </div>
+      </section>
+      <!-- Step 2 end -->
+      <!-- Step 3 start -->
+      <section class="step-3 hidden">
+        <div class="container-3">
+          <header>
+            <h1>Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </header>
+          <div class="add-ons monthly">
+            <div class="select-add-ons focus">
+              <input type="checkbox" name="" id="" />
+              <div>
+                <h2>Online service</h2>
+                <p>Access to multiplayer games</p>
+              </div>
+              <span class="month">+$1/mo</span>
+              <span class="year">+$10/yr</span>
+            </div>
+            <div class="select-add-ons focus">
+              <input type="checkbox" name="" id="" />
+              <div>
+                <h2>Larger storage</h2>
+                <p>Extra 1TB of cloud save</p>
+              </div>
+              <span class="month">+$2/mo</span>
+              <span class="year">+$20/yr</span>
+            </div>
+            <div class="select-add-ons">
+              <input type="checkbox" name="" id="" />
+              <div>
+                <h2>Customizable Profile</h2>
+                <p>Custom theme on your profile</p>
+              </div>
+              <span class="month">+$1/mo</span>
+              <span class="year">+$10/yr</span>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <button>4</button>
-          <div class="about">
-            <span>STEP 4</span>
-            <p>SUMMARY</p>
+        <div class="nav">
+          <button class="back">Go Back</button>
+          <button>Next Step</button>
+        </div>
+        </section>
+      <!-- Step 3 end -->
+      <!-- Step 4 start -->
+      <section id="step-4" class="step-4 hidden">
+        <div class="container-4">
+          <header>
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
+          </header>
+          <div class="summary">
+            <div class="summary-main">
+              <div>
+                <h4>Arcade(Monthly)</h4>
+                <button><a href="">Change</a></button>
+              </div>
+              <span class="summary-main-amount">$9/mo</span>
+            </div>
+            <hr>
+            <div class="summary-main-child">
+              <div class="summary-child">
+                <p>Online service</p>
+                <span>+$1/mo</span>
+              </div>
+              <div class="summary-child">
+                <p>Larger storage</p>
+                <span>+$2/mo</span>
+              </div>
+            </div>
+          </div>
+          <div class="summary-total">
+            <p>Total (per <span class="period">month</span>)</p>
+            <span class="total">$12/mo</span>
           </div>
         </div>
-      </div>
-    </aside>
-
-    <!-- Sidebar end -->
-
-    <!-- Step 1 start -->
-    <section id="step-1" class="step-1 hidden">
-      <form>
-        <header>
-          <h1>Personal info</h1>
+        <div class="nav">
+          <button class="back">Go Back</button>
+          <button class="confirm">Confirm</button>
+        </div>
+      </section>
+      <!-- Step 4 end -->
+      <!-- Step 5 start -->
+         <section class="thank-you hidden">
+        <div class="container-5">
+          <img src="/assets/images/icon-thank-you.svg" alt="" />
+          <h1>Thank you!</h1>
           <p>
-            Please provide your name, email<br />
-            address, and phone number.
+            Thanks for confirming your subscription! We hope you have fun using our
+            platform. If you ever need support, please feel free to email us at
+            support@loremgaming.com.
           </p>
-        </header>
-        <div class="form-control">
-          <div class="title-error">
-            <label for="name">Name</label>
-            <small class="hidden">Error message</small>
-          </div>
-          <input id="name" type="text" placeholder="e.g. Stephen King" />
         </div>
-        <div class="form-control">
-          <div class="title-error">
-            <label for="email">Email Address</label>
-            <small class="hidden">Error message</small>
-          </div>
-          <input
-            id="email"
-            type="text"
-            placeholder="e.g. stephenking@lorem.com"
-          />
-        </div>
-        <div class="form-control">
-          <div class="title-error">
-            <label for="phone-number">Phone Number</label>
-            <small class="hidden">Error message</small>
-          </div>
-          <input
-            id="phone-number"
-            type="text"
-            placeholder="e.g. +1 234 567 890"
-          />
-        </div>
-      </form>
-      <div class="nav">
-        <button>Go Back</button>
-        <button>Next Step</button>
-      </div>
-    </section>
-
-    <!-- Step 1 end -->
-
-    <!-- Step 2 start -->
-    <section id="step-2" class="step-2">
-      <div class="container-2">
-        <header>
-          <h1>Select your plan</h1>
-          <p>You have the option of monthly or yearly billing.</p>
-        </header>
-        <div class="plans monthly">
-
-          <div class="plan" tabindex="0">
-            <img src="/assets/images/icon-arcade.svg" alt="arcade-logo" />
-            <div class="plan-cal">
-              <h2>Arcade</h2>
-              <span class="month">$9/mo</span>
-              <span class="year">$90/yr</span>
-              <small>2 months free</small>
-            </div>
-          </div>
-
-          <div class="plan" tabindex="0">
-            <img src="/assets/images/icon-advanced.svg" alt="advanced-logo" />
-            <div class="plan-cal">
-              <h2>Advanced</h2>
-              <span class="month">$12/mo</span>
-              <span class="year">$120/yr</span>
-              <small>2 months free</small>
-            </div>
-          </div>
-
-          <div class="plan" tabindex="0">
-            <img src="/assets/images/icon-pro.svg" alt="pro-logo" />
-            <div class="plan-cal">
-              <h2>Pro</h2>
-              <span class="month">$15/mo</span>
-              <span class="year">$150/yr</span>
-              <small>2 months free</small>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="switcher month">
-          <span class="mn">Monthly</span>
-          <div class="toggle">
-            <i class="indicator"></i>
-          </div>
-          <span class="yr">Yearly</span>
-        </div>
-
-      </div>
-
-      <div class="nav">
-        <button class="back">Go Back</button>
-        <button>Next Step</button>
-      </div>
-    </section>
-
-    <!-- Step 2 end -->
-
-    <!-- Step 3 start -->
-    <!-- <section class="step-3">
-      <header>
-        <h1>Pick add-ons</h1>
-        <p>Add-ons help enhance your gaming experience.</p>
-      </header>
-      <div class="add-ons">
-        <div class="select-add-ons">
-          <input type="checkbox" name="" id="" />
-          <h2>Online service</h2>
-          <p>Access to multiplayer games</p>
-          <span>+$1/mo</span>
-          <span>+$10/yr</span>
-        </div>
-        <div class="select-add-ons">
-          <input type="checkbox" name="" id="" />
-          <h2>Larger storage</h2>
-          <p>Extra 1TB of cloud save</p>
-          <span>+$2/mo</span>
-          <span>+$20/yr</span>
-        </div>
-        <div class="select-add-ons">
-          <input type="checkbox" name="" id="" />
-          <h2>Customizable Profile</h2>
-          <p>Custom theme on your profile</p>
-          <span>+$1/mo</span>
-          <span>+$10/yr</span>
-        </div>
-      </div>
-      <div class="nav">
-        <button>Go Back</button>
-        <button>Next Step</button>
-      </div>
-    </section> -->
-    <!-- Step 3 end -->
-
-    <!-- Step 4 start -->
-    <!-- <section id="step-4">
-      <header>
-        <h1>Finishing up</h1>
-        <p>Double-check everything looks OK before confirming.</p>
-      </header>
-      <div class="summary"></div>
-      <div class="summary-total">
-        <p>Total (per <span class="period">month</span>)</p>
-        <span class="total">$120/mo</span>
-      </div>
-      <div class="nav">
-        <button>Go Back</button>
-        <button>Confirm</button>
-      </div>
-    </section> -->
-
-    <!-- Step 4 end -->
-
-    <!-- Step 5 start -->
-    <!-- <section class="thank-you">
-      <img src="/assets/images/icon-thank-you.svg" alt="" />
-      <h1>Thank you!</h1>
-      <p>
-        Thanks for confirming your subscription! We hope you have fun using our
-        platform. If you ever need support, please feel free to email us at
-        support@loremgaming.com.
-      </p>
-    </section> -->
+      </section>
+    </main>
 
     <!-- Step 5 end -->
 
