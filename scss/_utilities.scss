@@ -2,12 +2,9 @@
   background: $White;
   border-radius: 10px;
   padding: 30px 20px;
-  position: absolute;
-  top: 7rem;
-  left: 50%;
   margin: 0 auto;
-  transform: translateX(-50%);
   width: 90%;
+  margin-top: 8rem;
 
   header {
     h1 {
@@ -23,14 +20,15 @@
   }
 }
 
+
+
 %nav {
   background-color: $Alabaster;
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 0px;
   padding: 15px;
   width: 100%;
+  margin-top: auto;
 
   button {
     background-color: $Marine-blue;
@@ -41,20 +39,20 @@
     padding: 8px 10px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-color: lighten($Marine-blue, 10%);
     }
   }
-  .back{
+  .back {
     background: transparent;
     color: $Cool-gray;
 
-    &:hover{
+    &:hover {
       background: transparent;
       color: $Marine-blue;
     }
   }
-  .confirm{
+  .confirm {
     background-color: $Purplish-blue;
   }
 }
