@@ -18,6 +18,12 @@
   line-height: 1.4rem;
 }
 
+.step-4, .step-3, .step-2, .step-1 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .nav {
   background-color: hsl(231, 100%, 99%);
   display: flex;
@@ -93,11 +99,6 @@ body {
   display: none;
 }
 
-.step-1 {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 .step-1.hidden {
   display: none;
 }
@@ -370,17 +371,17 @@ body {
     align-items: center;
     min-height: 100vh;
   }
-  main .step-1 form {
-    margin-top: 0;
+  main .thank-you .container-5, main .step-4 .container-4, main .step-3 .container-3, main .step-2 .container-2, main .step-1 form {
+    margin-top: 20px;
     position: initial;
     transform: none;
     width: 30rem;
     padding: 24px 50px 0 0;
   }
-  main .step-1 form header h1 {
+  main .thank-you .container-5 header h1, main .step-4 .container-4 header h1, main .step-3 .container-3 header h1, main .step-2 .container-2 header h1, main .step-1 form header h1 {
     font-size: 30px;
   }
-  main .step-1 form header p {
+  main .thank-you .container-5 header p, main .step-4 .container-4 header p, main .step-3 .container-3 header p, main .step-2 .container-2 header p, main .step-1 form header p {
     font-size: 16px;
   }
   main {
@@ -388,6 +389,7 @@ body {
     display: flex;
     border-radius: 8px;
     padding: 10px;
+    height: 35rem;
   }
   main aside .sidebar {
     background: url(/assets/images/bg-sidebar-desktop.svg) no-repeat center center/cover;
@@ -424,15 +426,60 @@ body {
   main .step-1 form .form-control input {
     padding: 12px;
   }
+  main .step-2 {
+    height: inherit;
+  }
+  main .step-2 .container-2 .plans {
+    display: flex;
+    gap: 15px;
+  }
+  main .step-2 .container-2 .plans .plan {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 10rem;
+    height: 11rem;
+    cursor: pointer;
+  }
+  main .step-2 .container-2 .plans .plan img {
+    width: 50px;
+  }
+  main .step-2 .container-2 .plans .plan h2 {
+    font-weight: 500;
+    font-size: 17px;
+  }
+  main .step-2 .container-2 .switcher {
+    margin-top: 10px;
+    margin-bottom: 60px;
+    padding: 15px 30px;
+  }
+  main .step-3 {
+    height: inherit;
+  }
+  main .step-3 .container-3 .add-ons {
+    margin: 30px 0 70px 0;
+  }
+  main .step-4 {
+    height: inherit;
+  }
+  main .step-4 .container-4 .summary {
+    margin-top: 40px;
+  }
+  main .step-4 .container-4 .summary-total {
+    margin-bottom: 80px;
+  }
   main .nav {
     position: initial;
-    margin-top: 10px;
+    margin-top: 30px;
     padding-right: 50px;
-    background-color: hsl(0, 0%, 100%);
+    background: transparent;
   }
   main .nav button {
     font-size: 17px;
-    padding: 12px 12px;
+    padding: 12px 20px;
+  }
+  main .thank-you {
+    display: flex;
+    align-items: center;
   }
 }
 .attribution {

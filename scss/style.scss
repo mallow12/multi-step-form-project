@@ -51,9 +51,7 @@ body {
   &.hidden {
     display: none;
   }
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+ @extend %okay;
   form {
     @extend %main;
     .form-control {
@@ -106,6 +104,7 @@ body {
   &.hidden {
     display: none;
   }
+  @extend %okay;
   .container-2 {
     @extend %main;
     .plans {
@@ -201,6 +200,7 @@ body {
   &.hidden {
     display: none;
   }
+  @extend %okay;
   .container-3 {
     @extend %main;
 
@@ -255,6 +255,7 @@ body {
   &.hidden {
     display: none;
   }
+  @extend %okay;
   .container-4 {
     @extend %main;
 
@@ -399,7 +400,7 @@ body {
   }
 
   %main-desktop{
-    margin-top: 0;
+    margin-top: 20px;
     position: initial;
     transform: none;
     width: 30rem;
@@ -419,6 +420,7 @@ body {
     display: flex;
     border-radius: 8px;
     padding: 10px;
+    height: 35rem;
 
     aside {
       .sidebar {
@@ -465,14 +467,78 @@ body {
         }
       }
     }
+
+    .step-2{
+      height: inherit;
+      .container-2{
+        @extend %main-desktop;
+        .plans{
+          display: flex;
+          gap: 15px;
+          .plan{
+            flex-direction: column;
+            justify-content: space-between;
+            width: 10rem;
+            height: 11rem;
+            cursor: pointer;
+            img{
+              width: 50px;
+            }
+            h2{
+              font-weight: 500;
+              font-size: 17px;
+            }
+          }
+        }
+
+        .switcher{
+          margin-top: 10px;
+          margin-bottom: 60px;
+          padding: 15px 30px;
+        }
+      }
+    }
+
+    .step-3{
+      height: inherit;
+      .container-3{
+        @extend %main-desktop;
+
+        .add-ons{
+          margin: 30px 0 70px 0;
+        }
+      }
+    }
+
+    .step-4{
+      height: inherit;
+      .container-4{
+        @extend %main-desktop;
+        .summary{
+          margin-top: 40px;
+        }
+        .summary-total{
+          margin-bottom: 80px;
+        }
+      }
+    }
     .nav {
       position: initial;
-      margin-top: 10px;
+      margin-top: 30px;
       padding-right: 50px;
-      background-color: $White;
+      
+      background: transparent;
       button {
         font-size: 17px;
-        padding: 12px 12px;
+        padding: 12px 20px;
+      }
+    }
+
+    .thank-you{
+      display: flex;
+      align-items: center;
+      .container-5{
+        @extend %main-desktop;
       }
     }
   }
