@@ -2,9 +2,8 @@
   background: $White;
   border-radius: 10px;
   padding: 30px 20px;
-  margin: 0 auto;
   width: 90%;
-  margin-top: 8rem;
+  margin: 0 auto;
 
   header {
     h1 {
@@ -20,10 +19,13 @@
   }
 }
 
-%okay{
+%okay {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  position: absolute;
+  top: 7rem;
+  width: 100%;
 }
 
 %nav {

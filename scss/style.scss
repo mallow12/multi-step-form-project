@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: $Light-gray;
   font-family: $fonty;
@@ -15,11 +14,11 @@ body {
   background: $bg-mobile no-repeat center center/ cover;
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  // top: 0;
   width: 100%;
   height: 12rem;
-  z-index: -1;
+  // z-index: -1;
 
   .step {
     margin: 2.3rem 1rem 0 0;
@@ -51,7 +50,7 @@ body {
   &.hidden {
     display: none;
   }
- @extend %okay;
+  @extend %okay;
   form {
     @extend %main;
     .form-control {
@@ -61,14 +60,16 @@ body {
         margin-bottom: 8px;
         small {
           color: $Strawberry-red;
-          &.hidden {
             visibility: hidden;
-          }
+            font-size: 12px;
         }
       }
       &.error {
         input {
           border: 1.5px solid $Strawberry-red;
+        }
+        small{
+          visibility: visible;
         }
       }
     }
@@ -354,39 +355,81 @@ body {
 }
 
 @media (min-width: 500px) {
-  .step-1 {
-    form {
-      width: 28rem;
-      header {
-        h1 {
-          font-size: 35px;
-        }
-        p {
-          font-size: 17px;
+  %main-tab {
+    width: 28rem;
+    header {
+      h1 {
+        font-size: 35px;
+      }
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+  main {
+    .step-1 {
+      form {
+        @extend %main-tab;
+        .form-control {
+          .title-error {
+            label {
+              font-size: 17px;
+            }
+          }
+          input {
+            padding: 16px;
+            font-size: 18px;
+            &::placeholder {
+              font-size: 15px;
+            }
+          }
         }
       }
-      .form-control {
-        .title-error {
-          label {
-            font-size: 17px;
-          }
-        }
-        input {
-          padding: 16px;
-          font-size: 18px;
-          &::placeholder {
-            font-size: 15px;
-          }
-        }
+    }
+
+    .step-2 {
+      .container-2 {
+        @extend %main-tab;
+      }
+    }
+    .step-3 {
+      .container-3 {
+        @extend %main-tab;
+      }
+    }
+    .step-4 {
+      .container-4 {
+        @extend %main-tab;
       }
     }
   }
 }
 
 @media (min-width: 650px) {
-  .step-1 {
-    form {
-      width: 35rem;
+  %main-tabb {
+    width: 35rem;
+  }
+  main {
+    .step-1 {
+      form {
+        @extend %main-tabb;
+      }
+    }
+
+    .step-2 {
+      .container-2 {
+        @extend %main-tabb;
+      }
+    }
+    .step-3 {
+      .container-3 {
+        @extend %main-tabb;
+      }
+    }
+    .step-4 {
+      .container-4 {
+        @extend %main-tabb;
+      }
     }
   }
 }
@@ -399,13 +442,13 @@ body {
     min-height: 100vh;
   }
 
-  %main-desktop{
+  %main-desktop {
     margin-top: 20px;
     position: initial;
     transform: none;
     width: 30rem;
     padding: 24px 50px 0 0;
-  
+
     header {
       h1 {
         font-size: 30px;
@@ -439,11 +482,11 @@ body {
 
           .about {
             display: block;
-            span{
+            span {
               color: $Cool-gray;
               font-size: 14px;
             }
-            p{
+            p {
               color: $White;
               font-weight: 700;
             }
@@ -452,7 +495,7 @@ body {
       }
     }
     .step-1 {
-      height: inherit;
+      position: initial;
       form {
         @extend %main-desktop;
         .form-control {
@@ -468,57 +511,57 @@ body {
       }
     }
 
-    .step-2{
-      height: inherit;
-      .container-2{
+    .step-2 {
+      position: initial;
+      .container-2 {
         @extend %main-desktop;
-        .plans{
+        .plans {
           display: flex;
           gap: 15px;
-          .plan{
+          .plan {
             flex-direction: column;
             justify-content: space-between;
             width: 10rem;
             height: 11rem;
             cursor: pointer;
-            img{
+            img {
               width: 50px;
             }
-            h2{
+            h2 {
               font-weight: 500;
               font-size: 17px;
             }
           }
         }
 
-        .switcher{
+        .switcher {
           margin-top: 10px;
-          margin-bottom: 60px;
+          margin-bottom: 40px;
           padding: 15px 30px;
         }
       }
     }
 
-    .step-3{
-      height: inherit;
-      .container-3{
+    .step-3 {
+      position: initial;
+      .container-3 {
         @extend %main-desktop;
 
-        .add-ons{
-          margin: 30px 0 70px 0;
+        .add-ons {
+          margin: 30px 0 50px 0;
         }
       }
     }
 
-    .step-4{
-      height: inherit;
-      .container-4{
+    .step-4 {
+      position: initial;
+      .container-4 {
         @extend %main-desktop;
-        .summary{
+        .summary {
           margin-top: 40px;
         }
-        .summary-total{
-          margin-bottom: 80px;
+        .summary-total {
+          margin-bottom: 60px;
         }
       }
     }
@@ -526,7 +569,7 @@ body {
       position: initial;
       margin-top: 30px;
       padding-right: 50px;
-      
+
       background: transparent;
       button {
         font-size: 17px;
@@ -534,10 +577,10 @@ body {
       }
     }
 
-    .thank-you{
+    .thank-you {
       display: flex;
       align-items: center;
-      .container-5{
+      .container-5 {
         @extend %main-desktop;
       }
     }
