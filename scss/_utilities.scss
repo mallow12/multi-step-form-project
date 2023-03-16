@@ -60,5 +60,8 @@
   }
   .confirm {
     background-color: $Purplish-blue;
+  &:hover{
+    background-color: lighten($Purplish-blue,  10%);
+  }
   }
 }

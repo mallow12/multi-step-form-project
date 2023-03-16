@@ -34,7 +34,7 @@ body {
       height: 40px;
       cursor: pointer;
 
-      &:focus {
+      &.focus {
         background-color: $Light-gray;
         color: $Marine-blue;
       }
@@ -130,7 +130,7 @@ body {
         padding: 20px 15px;
         margin-bottom: 20px;
         border-radius: 8px;
-        &:focus {
+        &.focus {
           background-color: $Magnolia;
           border: 1.5px solid $Marine-blue;
         }
@@ -333,6 +333,7 @@ body {
   &.hidden {
     display: none;
   }
+  @extend %okay;
   .container-5 {
     @extend %main;
     display: flex;
@@ -578,6 +579,7 @@ body {
     }
 
     .thank-you {
+      position: initial;
       display: flex;
       align-items: center;
       .container-5 {
