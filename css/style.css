@@ -193,11 +193,15 @@ body {
 .step-2 .container-2 .switcher.month .yr {
   color: hsl(231, 11%, 63%);
 }
+.step-2 .container-2 .switcher.month .toggle .indicator {
+  transition: 0.5s;
+}
 .step-2 .container-2 .switcher.year .mn {
   color: hsl(231, 11%, 63%);
 }
 .step-2 .container-2 .switcher.year .toggle .indicator {
   left: 29px;
+  transition: 0.5s;
 }
 .step-2 .container-2 .switcher .toggle {
   position: relative;
@@ -207,7 +211,6 @@ body {
   border-radius: 160px;
   background-color: hsl(213, 96%, 18%);
   cursor: pointer;
-  transition: 0.5s;
 }
 .step-2 .container-2 .switcher .toggle .indicator {
   position: absolute;
@@ -276,6 +279,12 @@ body {
   align-items: center;
   margin-bottom: 15px;
   color: hsl(213, 96%, 18%);
+}
+.step-4 .container-4 .summary .summary-main.monthly .year {
+  display: none;
+}
+.step-4 .container-4 .summary .summary-main.yearly .month {
+  display: none;
 }
 .step-4 .container-4 .summary .summary-main button {
   background: transparent;
@@ -439,15 +448,16 @@ body {
   }
   main .step-2 .container-2 .plans .plan {
     flex-direction: column;
-    justify-content: space-between;
     width: 10rem;
-    height: 11rem;
     cursor: pointer;
   }
   main .step-2 .container-2 .plans .plan img {
     width: 50px;
   }
-  main .step-2 .container-2 .plans .plan h2 {
+  main .step-2 .container-2 .plans .plan .plan-cal {
+    margin-top: 30px;
+  }
+  main .step-2 .container-2 .plans .plan .plan-cal h2 {
     font-weight: 500;
     font-size: 17px;
   }
@@ -473,7 +483,6 @@ body {
   }
   main .nav {
     position: initial;
-    margin-top: 30px;
     padding-right: 50px;
     background: transparent;
   }

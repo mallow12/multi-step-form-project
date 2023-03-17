@@ -142,7 +142,6 @@ body {
         .plan-cal {
           display: flex;
           flex-direction: column;
-
           span {
             color: $Cool-gray;
           }
@@ -161,6 +160,11 @@ body {
         .yr {
           color: $Cool-gray;
         }
+        .toggle {
+          .indicator {
+            transition: 0.5s;
+          }
+        }
       }
       &.year {
         .mn {
@@ -169,6 +173,7 @@ body {
         .toggle {
           .indicator {
             left: 29px;
+            transition: 0.5s;
           }
         }
       }
@@ -180,7 +185,6 @@ body {
         border-radius: 160px;
         background-color: $Marine-blue;
         cursor: pointer;
-        transition: 0.5s;
 
         .indicator {
           position: absolute;
@@ -272,6 +276,16 @@ body {
         align-items: center;
         margin-bottom: 15px;
         color: $Marine-blue;
+        &.monthly{
+          .year{
+            display: none;
+          }
+        }
+        &.yearly{
+          .month{
+            display: none;
+          }
+        }
 
         button {
           background: transparent;
@@ -521,17 +535,18 @@ body {
           gap: 15px;
           .plan {
             flex-direction: column;
-            justify-content: space-between;
             width: 10rem;
-            height: 11rem;
             cursor: pointer;
             img {
               width: 50px;
             }
+            .plan-cal{
+              margin-top: 30px;
             h2 {
               font-weight: 500;
               font-size: 17px;
             }
+          }
           }
         }
 
@@ -568,7 +583,6 @@ body {
     }
     .nav {
       position: initial;
-      margin-top: 30px;
       padding-right: 50px;
 
       background: transparent;

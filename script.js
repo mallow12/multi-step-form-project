@@ -1,27 +1,29 @@
 'use strict';
 
-const steps = document.querySelectorAll('.step-button');
 const stepOne = document.getElementById('step-1');
-const nextStep = stepOne.querySelector('.next-step');
 const stepTwo = document.getElementById('step-2');
-const nextStep2 = stepTwo.querySelector('.next-step');
 const stepThree = document.getElementById('step-3');
-const nextStep3 = stepThree.querySelector('.next-step');
 const stepFour = document.getElementById('step-4');
-const confirmButton = stepFour.querySelector('.confirm');
 const thankYou = document.querySelector('.thank-you');
-const goBack = document.querySelectorAll('.back');
 const inputs = document.querySelectorAll('input');
 const namee = document.getElementById('name');
 const email = document.getElementById('email');
 const number = document.getElementById('phone-number');
 const plans = document.querySelectorAll('.plan');
+const mainPlan = document.querySelector('.plans');
+const switcher = document.querySelector('.switcher');
+const addOns = document.querySelector('.add-ons');
+const toggle = document.querySelector('.toggle');
+const change = document.querySelector('.change');
+const mainSummary= document.querySelector('.summary-main')
 
 function doSomethingForEachElement(selector, func) {
   const elements = document.querySelectorAll(selector);
   elements.forEach(func);
 }
+
 // focus();
+
 function showError(input, message) {
   const formControl = input.parentElement;
   formControl.className = 'form-control error';
@@ -92,12 +94,68 @@ function confirm(inputss) {
     }
   });
 
-  if (allFilled) {
-    stepOne.classList.add('hidden');
-    stepTwo.classList.remove('hidden');
-  }
+  return allFilled;
 }
 
+function mnyrSwitch() {
+  switcher.classList.toggle('year');
+  if (switcher.className.includes('month')) {
+    switcher.className = 'switcher year';
+    mainPlan.className = 'plans yearly';
+    addOns.className = 'add-ons yearly';
+    mainSummary.className='summary-main yearly'
+  } else {
+    switcher.className = 'switcher month';
+    mainPlan.className = 'plans monthly';
+    addOns.className = 'add-ons yearly';
+    mainSummary.className='summary-main monthly'
+  }
+}
+const nextStep = Array.from(document.querySelectorAll('.next-step'));
+
+const stepButtons = Array.from(document.querySelectorAll('.step-button'));
+
+const buttons = Array.from(document.querySelectorAll('.back'));
+
+let currentStep = 1;
+
+const nextButton = () => {
+  if (!stepOne.className.includes('hidden')) {
+    if (confirm([namee, email, number])) {
+      stepOne.classList.add('hidden');
+      stepTwo.classList.remove('hidden');
+    }
+  } else if (!stepTwo.className.includes('hidden')) {
+    stepTwo.classList.add('hidden');
+    stepThree.classList.remove('hidden');
+  } else if (!stepThree.className.includes('hidden')) {
+    stepThree.classList.add('hidden');
+    stepFour.classList.remove('hidden');
+  } else {
+    stepFour.classList.add('hidden');
+    thankYou.classList.remove('hidden');
+  }
+};
+
+const previousButton = () => {
+  if (!stepTwo.className.includes('hidden')) {
+    stepOne.classList.remove('hidden');
+    stepTwo.classList.add('hidden');
+  } else if (!stepThree.className.includes('hidden')) {
+    stepTwo.classList.remove('hidden');
+    stepThree.classList.add('hidden');
+  } else {
+    stepThree.classList.remove('hidden');
+    stepFour.classList.add('hidden');
+  }
+};
+
+const changeButton = () => {
+  if (!stepFour.className.includes('hidden')) {
+    stepTwo.classList.remove('hidden');
+    stepFour.classList.add('hidden');
+  }
+};
 // document.querySelector('.step-button.focus').classList.remove('focus');
 // step.classList.add('focus');
 
@@ -119,45 +177,40 @@ plans.forEach((plan) => {
   });
 });
 
-nextStep.addEventListener('click', (e) => {
-  e.preventDefault();
-  confirm([namee, email, number]);
+//   document.querySelector('.step-button.focus').classList.remove('focus');
+// step.classList.add('focus'););
 
-  //   document.querySelector('.step-button.focus').classList.remove('focus');
-  // step.classList.add('focus');
+nextStep.forEach((button) => {
+  button.addEventListener('click', () => {
+    const allFilled = confirm([namee, email, number]);
+    if (allFilled) {
+      nextButton();
+      stepButtons[currentStep - 1].classList.remove('focus');
+      currentStep++;
+      stepButtons[currentStep - 1].classList.add('focus');
+    }
+  });
 });
-const nextButton = () => {
-  if (!stepTwo.className.includes('hidden')) {
-    stepTwo.classList.add('hidden');
-    stepThree.classList.remove('hidden');
-  } else if (!stepThree.className.includes('hidden')) {
-    stepThree.classList.add('hidden');
-    stepFour.classList.remove('hidden');
-  } else {
-    stepFour.classList.add('hidden');
-    thankYou.classList.remove('hidden');
-  }
-};
 
-const previousButton = () => {
- if (!stepTwo.className.includes('hidden')) {
-    stepOne.classList.remove('hidden');
-    stepTwo.classList.add('hidden');
-  } else if (!stepThree.className.includes('hidden')) {
-    stepTwo.classList.remove('hidden');
-    stepThree.classList.add('hidden');
-  } else {
-    stepThree.classList.remove('hidden');
-    stepFour.classList.add('hidden');
-  }
-};
-
-nextStep2.addEventListener('click', nextButton);
-nextStep3.addEventListener('click', nextButton);
-confirmButton.addEventListener('click', nextButton);
-
-const buttons = Array.from(goBack);
-
+let okay = true;
 buttons.forEach((back) => {
-  back.addEventListener('click', previousButton);
+  back.addEventListener('click', () => {
+    if (okay) {
+      previousButton();
+      stepButtons[currentStep - 1].classList.remove('focus');
+      currentStep--;
+      stepButtons[currentStep - 1].classList.add('focus');
+    }
+  });
+});
+
+toggle.addEventListener('click', mnyrSwitch);
+
+change.addEventListener('click', () => {
+  if (okay) {
+    changeButton();
+    stepButtons[currentStep - 1].classList.remove('focus');
+    currentStep = currentStep - 2;
+    stepButtons[currentStep - 1].classList.add('focus');
+  }
 });
