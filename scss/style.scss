@@ -328,6 +328,16 @@ body {
       justify-content: space-between;
       padding: 15px;
       margin-top: 13px;
+      &.monthly{
+        .year{
+          display: none;
+        }
+      }
+      &.yearly{
+        .month{
+          display: none;
+        }
+      }
 
       p {
         color: $Cool-gray;

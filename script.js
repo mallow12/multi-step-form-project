@@ -9,13 +9,15 @@ const inputs = document.querySelectorAll('input');
 const namee = document.getElementById('name');
 const email = document.getElementById('email');
 const number = document.getElementById('phone-number');
-const plans = document.querySelectorAll('.plan');
 const mainPlan = document.querySelector('.plans');
 const switcher = document.querySelector('.switcher');
 const addOns = document.querySelector('.add-ons');
 const toggle = document.querySelector('.toggle');
 const change = document.querySelector('.change');
-const mainSummary= document.querySelector('.summary-main')
+const mainSummary = document.querySelector('.summary-main');
+const summaryTotal = document.querySelector('.summary-total');
+const summaryTitle = document.querySelector('.summary-title');
+const summaryMainAmount = document.querySelector('.summary-main-amount');
 
 function doSomethingForEachElement(selector, func) {
   const elements = document.querySelectorAll(selector);
@@ -97,18 +99,30 @@ function confirm(inputss) {
   return allFilled;
 }
 
+function updateToggle() {
+  const selectedPlan= document.querySelector('.plan.focus')
+  if (switcher.className.includes('month')) {
+    const selectedMonth = selectedPlan.querySelector('.month');
+    summaryMainAmount.innerText = selectedMonth.innerText;
+  } else {
+    const selectedYear = selectedPlan.querySelector('.year');
+    summaryMainAmount.innerText = selectedYear.innerText;
+  }
+}
+
 function mnyrSwitch() {
-  switcher.classList.toggle('year');
   if (switcher.className.includes('month')) {
     switcher.className = 'switcher year';
     mainPlan.className = 'plans yearly';
     addOns.className = 'add-ons yearly';
-    mainSummary.className='summary-main yearly'
+    mainSummary.className = 'summary-main yearly';
+    summaryTotal.className = 'summary-total yearly';
   } else {
     switcher.className = 'switcher month';
     mainPlan.className = 'plans monthly';
     addOns.className = 'add-ons yearly';
-    mainSummary.className='summary-main monthly'
+    mainSummary.className = 'summary-main monthly';
+    summaryTotal.className = 'summary-total monthly';
   }
 }
 const nextStep = Array.from(document.querySelectorAll('.next-step'));
@@ -170,10 +184,22 @@ inputs.forEach((input) => {
   });
 });
 
+const plans = Array.from(document.querySelectorAll('.plan'));
+
 plans.forEach((plan) => {
   plan.addEventListener('click', (e) => {
     document.querySelector('.plan.focus').classList.remove('focus');
     plan.classList.add('focus');
+    const name = plan.querySelector('h2');
+    const month = plan.querySelector('.month');
+    const yearss = plan.querySelector('.year');
+    summaryTitle.innerText = name.innerText;
+
+    if (switcher.className.includes('month')) {
+      summaryMainAmount.innerText = month.innerText;
+    } else {
+      summaryMainAmount.innerText = yearss.innerText;
+    }
   });
 });
 
@@ -204,7 +230,10 @@ buttons.forEach((back) => {
   });
 });
 
-toggle.addEventListener('click', mnyrSwitch);
+toggle.addEventListener('click',() => {
+  mnyrSwitch()
+  updateToggle()
+});
 
 change.addEventListener('click', () => {
   if (okay) {

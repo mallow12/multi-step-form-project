@@ -319,6 +319,12 @@ body {
   padding: 15px;
   margin-top: 13px;
 }
+.step-4 .container-4 .summary-total.monthly .year {
+  display: none;
+}
+.step-4 .container-4 .summary-total.yearly .month {
+  display: none;
+}
 .step-4 .container-4 .summary-total p {
   color: hsl(231, 11%, 63%);
 }
