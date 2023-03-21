@@ -18,13 +18,9 @@ const mainSummary = document.querySelector('.summary-main');
 const summaryTotal = document.querySelector('.summary-total');
 const summaryTitle = document.querySelector('.summary-title');
 const summaryMainAmount = document.querySelector('.summary-main-amount');
+const summaryMainChild = document.querySelector('.summary-main-child');
 
-function doSomethingForEachElement(selector, func) {
-  const elements = document.querySelectorAll(selector);
-  elements.forEach(func);
-}
-
-// focus();
+let okay = true;
 
 function showError(input, message) {
   const formControl = input.parentElement;
@@ -59,10 +55,10 @@ function checkValidity(input) {
 }
 
 function nameFormat(input) {
-  const words = input.value.trim().split(/\s+/);
+  const words = input.value;
 
-  if (words.length === 1) {
-    showError(input, 'Invalid name');
+  if (words.length < 4) {
+    showError(input, 'Minimum 4 characters');
   } else if (/\d/.test(input.value)) {
     showError(input, 'Wrong format, letters only');
   } else {
@@ -75,8 +71,8 @@ function numberFormat(input) {
 
   if (/[a-zA-Z]/.test(inputValue)) {
     showError(input, 'Wrong format, numbers only');
-  } else if (inputValue.length < 3) {
-    showError(input, 'Minimum 3 characters');
+  } else if (inputValue.length < 7) {
+    showError(input, 'Minimum 7 characters');
   } else {
     showSuccess(input);
   }
@@ -99,8 +95,39 @@ function confirm(inputss) {
   return allFilled;
 }
 
+function updateTotal() {
+  const total = document.querySelector('.total');
+  const selectAddOn = document.querySelectorAll('.select-add-ons.focus');
+  const mainPrice = summaryMainAmount.innerText;
+  let totalCost = 0;
+  const mainNum = parseInt(mainPrice.substring(1, mainPrice.length - 3));
+  selectAddOn.forEach((select) => {
+    if (switcher.className.includes('month')) {
+      const monthPrice = select.querySelector('.month').innerText;
+      const monthPriceNum = parseInt(
+        monthPrice.substring(2, monthPrice.length - 3)
+      );
+      totalCost += monthPriceNum;
+    } else {
+      const yearPrice = select.querySelector('.year').innerText;
+      const yearPriceNum = parseInt(
+        yearPrice.substring(2, yearPrice.length - 3)
+      );
+      totalCost += yearPriceNum;
+    }
+  });
+  console.log(mainNum);
+  totalCost += mainNum;
+  total.innerText = switcher.className.includes('month')
+    ? `$${totalCost}/mo`
+    : `$${totalCost}/yr`;
+  if (summaryMainChild.innerHTML === '') {
+    total.innerText = summaryMainAmount.innerText;
+  }
+}
+// updateTotal()
 function updateToggle() {
-  const selectedPlan= document.querySelector('.plan.focus')
+  const selectedPlan = document.querySelector('.plan.focus');
   if (switcher.className.includes('month')) {
     const selectedMonth = selectedPlan.querySelector('.month');
     summaryMainAmount.innerText = selectedMonth.innerText;
@@ -108,6 +135,25 @@ function updateToggle() {
     const selectedYear = selectedPlan.querySelector('.year');
     summaryMainAmount.innerText = selectedYear.innerText;
   }
+  updateTotal();
+}
+
+function updateAddOnsToggle() {
+  const selectAddOns = document.querySelectorAll('.select-add-ons.focus');
+  summaryMainChild.innerHTML = ''; // clear previous summary items
+  selectAddOns.forEach((select) => {
+    let name = select.querySelector('h2').innerText;
+    let amount;
+    if (switcher.className.includes('month')) {
+      const selectedMonth = select.querySelector('.month');
+      amount = selectedMonth.innerText;
+    } else {
+      const selectedYear = select.querySelector('.year');
+      amount = selectedYear.innerText;
+    }
+    const summaryItem = generateSummaryDom(name, amount);
+    summaryMainChild.appendChild(summaryItem);
+  });
 }
 
 function mnyrSwitch() {
@@ -120,10 +166,11 @@ function mnyrSwitch() {
   } else {
     switcher.className = 'switcher month';
     mainPlan.className = 'plans monthly';
-    addOns.className = 'add-ons yearly';
+    addOns.className = 'add-ons monthly';
     mainSummary.className = 'summary-main monthly';
     summaryTotal.className = 'summary-total monthly';
   }
+  updateAddOnsToggle();
 }
 const nextStep = Array.from(document.querySelectorAll('.next-step'));
 
@@ -184,6 +231,8 @@ inputs.forEach((input) => {
   });
 });
 
+// Event listener for each plans
+
 const plans = Array.from(document.querySelectorAll('.plan'));
 
 plans.forEach((plan) => {
@@ -200,6 +249,57 @@ plans.forEach((plan) => {
     } else {
       summaryMainAmount.innerText = yearss.innerText;
     }
+    updateTotal();
+  });
+});
+
+// Generate Summary dom
+const generateSummaryDom = (para, span) => {
+  const summaryChild = document.createElement('div');
+  summaryChild.className = 'summary-child';
+  const summaryPara = document.createElement('p');
+  const summarySpan = document.createElement('span');
+
+  summaryPara.innerText = para;
+  summarySpan.innerText = span;
+
+  summaryChild.appendChild(summaryPara);
+  summaryChild.appendChild(summarySpan);
+
+  return summaryChild;
+};
+
+const selectedAddOns = Array.from(document.querySelectorAll('.select-add-ons'));
+
+// Each addons event listener
+
+selectedAddOns.forEach((addOns) => {
+  const check = addOns.querySelector('input');
+  check.checked = false;
+  addOns.addEventListener('click', (e) => {
+    let name = addOns.querySelector('h2');
+    name = name.innerText;
+    let amount = addOns.querySelector('.amountx');
+    amount = amount.innerText;
+    const summarySec = generateSummaryDom(name, amount);
+    if (!addOns.classList.contains('focus')) {
+      check.checked = true;
+      addOns.classList.add('focus');
+      summaryMainChild.appendChild(summarySec);
+      addOns.summarySec = summarySec;
+    } else {
+      check.checked = false;
+      addOns.classList.remove('focus');
+
+      const summaryElements = Array.from (summaryMainChild.querySelectorAll('.summary-child'));
+      summaryElements.forEach((summaryElement) => {
+        const summaryName = summaryElement.querySelector('p').innerText;
+        if (summaryName === name) {
+          summaryMainChild.removeChild(summaryElement);
+        }
+      });
+    }
+    updateTotal();
   });
 });
 
@@ -218,7 +318,6 @@ nextStep.forEach((button) => {
   });
 });
 
-let okay = true;
 buttons.forEach((back) => {
   back.addEventListener('click', () => {
     if (okay) {
@@ -230,9 +329,9 @@ buttons.forEach((back) => {
   });
 });
 
-toggle.addEventListener('click',() => {
-  mnyrSwitch()
-  updateToggle()
+toggle.addEventListener('click', () => {
+  mnyrSwitch();
+  updateToggle();
 });
 
 change.addEventListener('click', () => {

@@ -60,15 +60,15 @@ body {
         margin-bottom: 8px;
         small {
           color: $Strawberry-red;
-            visibility: hidden;
-            font-size: 12px;
+          visibility: hidden;
+          font-size: 12px;
         }
       }
       &.error {
         input {
           border: 1.5px solid $Strawberry-red;
         }
-        small{
+        small {
           visibility: visible;
         }
       }
@@ -228,6 +228,7 @@ body {
         padding: 15px;
         border: 1.3px solid $Light-gray;
         border-radius: 8px;
+        cursor: pointer;
 
         &.focus {
           border: 1.5px solid $Purplish-blue;
@@ -246,10 +247,12 @@ body {
           color: $Cool-gray;
           font-size: 13px;
         }
-        span {
-          color: $Purplish-blue;
-          font-size: 12px;
+        .amountx {
           margin-left: auto;
+          span {
+            color: $Purplish-blue;
+            font-size: 12px;
+          }
         }
       }
     }
@@ -276,13 +279,13 @@ body {
         align-items: center;
         margin-bottom: 15px;
         color: $Marine-blue;
-        &.monthly{
-          .year{
+        &.monthly {
+          .year {
             display: none;
           }
         }
-        &.yearly{
-          .month{
+        &.yearly {
+          .month {
             display: none;
           }
         }
@@ -328,13 +331,13 @@ body {
       justify-content: space-between;
       padding: 15px;
       margin-top: 13px;
-      &.monthly{
-        .year{
+      &.monthly {
+        .year {
           display: none;
         }
       }
-      &.yearly{
-        .month{
+      &.yearly {
+        .month {
           display: none;
         }
       }
@@ -550,13 +553,13 @@ body {
             img {
               width: 50px;
             }
-            .plan-cal{
+            .plan-cal {
               margin-top: 30px;
-            h2 {
-              font-weight: 500;
-              font-size: 17px;
+              h2 {
+                font-weight: 500;
+                font-size: 17px;
+              }
             }
-          }
           }
         }
 

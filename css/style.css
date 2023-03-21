@@ -240,6 +240,7 @@ body {
   padding: 15px;
   border: 1.3px solid hsl(229, 24%, 87%);
   border-radius: 8px;
+  cursor: pointer;
 }
 .step-3 .container-3 .add-ons .select-add-ons.focus {
   border: 1.5px solid hsl(243, 100%, 62%);
@@ -258,10 +259,12 @@ body {
   color: hsl(231, 11%, 63%);
   font-size: 13px;
 }
-.step-3 .container-3 .add-ons .select-add-ons span {
+.step-3 .container-3 .add-ons .select-add-ons .amountx {
+  margin-left: auto;
+}
+.step-3 .container-3 .add-ons .select-add-ons .amountx span {
   color: hsl(243, 100%, 62%);
   font-size: 12px;
-  margin-left: auto;
 }
 
 .step-4.hidden {
