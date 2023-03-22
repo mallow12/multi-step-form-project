@@ -289,13 +289,9 @@ body {
 .step-4 .container-4 .summary .summary-main.yearly .month {
   display: none;
 }
-.step-4 .container-4 .summary .summary-main button {
-  background: transparent;
-  border: none;
-  font-family: "Ubuntu", sans-serif;
-}
-.step-4 .container-4 .summary .summary-main button a {
+.step-4 .container-4 .summary .summary-main .change {
   color: hsl(231, 11%, 63%);
+  font-size: 14px;
 }
 .step-4 .container-4 .summary .summary-main span {
   font-weight: 700;

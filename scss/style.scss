@@ -290,15 +290,13 @@ body {
           }
         }
 
-        button {
-          background: transparent;
-          border: none;
-          font-family: $fonty;
 
-          a {
+        
+          .change {
             color: $Cool-gray;
+            font-size: 14px;
           }
-        }
+        
 
         span {
           font-weight: 700;
