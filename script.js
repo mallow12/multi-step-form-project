@@ -116,7 +116,6 @@ function updateTotal() {
       totalCost += yearPriceNum;
     }
   });
-  console.log(mainNum);
   totalCost += mainNum;
   total.innerText = switcher.className.includes('month')
     ? `$${totalCost}/mo`
@@ -291,7 +290,7 @@ selectedAddOns.forEach((addOns) => {
       check.checked = false;
       addOns.classList.remove('focus');
 
-      const summaryElements = Array.from (summaryMainChild.querySelectorAll('.summary-child'));
+      const summaryElements = summaryMainChild.querySelectorAll('.summary-child');
       summaryElements.forEach((summaryElement) => {
         const summaryName = summaryElement.querySelector('p').innerText;
         if (summaryName === name) {
@@ -302,9 +301,6 @@ selectedAddOns.forEach((addOns) => {
     updateTotal();
   });
 });
-
-//   document.querySelector('.step-button.focus').classList.remove('focus');
-// step.classList.add('focus'););
 
 nextStep.forEach((button) => {
   button.addEventListener('click', () => {
