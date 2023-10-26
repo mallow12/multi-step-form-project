@@ -10,13 +10,5 @@ $Magnolia: hsl(217, 100%, 97%);
 $Alabaster: hsl(231, 100%, 99%);
 $White: hsl(0, 0%, 100%);
 $fonty: 'Ubuntu', sans-serif;
-$bg-mobile: url(/assets/images/bg-sidebar-mobile.svg);
-$bg-desktop: url(/assets/images/bg-sidebar-desktop.svg);
-$body-col:hsl(215, 100%, 97%);
-// @function set-step-background($class) {
-//   @if ($class== 'one') {
-//     @return hsl(229, 24%, 87%);
-//   } @else {
-//     @return transparent;
-//   }
-// }
+$bg-mobile: url(image/bg-sidebar-mobile.svg);
+$bg-desktop: url(image/bg-sidebar-desktop.svg);

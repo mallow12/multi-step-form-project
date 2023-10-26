@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: $body-col;
+  background-color: $Magnolia;
   font-family: $fonty;
 }
 
@@ -290,13 +290,10 @@ body {
           }
         }
 
-
-        
-          .change {
-            color: $Cool-gray;
-            font-size: 14px;
-          }
-        
+        .change {
+          color: $Cool-gray;
+          font-size: 14px;
+        }
 
         span {
           font-weight: 700;

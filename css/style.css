@@ -68,12 +68,12 @@
 }
 
 body {
-  background-color: hsl(215, 100%, 97%);
+  background-color: hsl(217, 100%, 97%);
   font-family: "Ubuntu", sans-serif;
 }
 
 .sidebar {
-  background: url(/assets/images/bg-sidebar-mobile.svg) no-repeat center center/cover;
+  background: url(image/bg-sidebar-mobile.svg) no-repeat center center/cover;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -410,7 +410,7 @@ body {
     height: 35rem;
   }
   main aside .sidebar {
-    background: url(/assets/images/bg-sidebar-desktop.svg) no-repeat center center/cover;
+    background: url(image/bg-sidebar-desktop.svg) no-repeat center center/cover;
     position: unset;
     border-radius: 10px;
     flex-direction: column;
